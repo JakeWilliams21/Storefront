@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: 'Arapey', serif;
+  font-family: 'Bayon', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFAED;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

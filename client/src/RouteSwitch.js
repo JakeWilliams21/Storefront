@@ -4,16 +4,20 @@ import App from './App'
 import Detail from './components/Detail'
 import Landing from './components/Landing'
 import Shop from './components/Shop'
+import { CartProvider } from './CartContext'
 
 const RouteSwitch = () => {
   return (
-    <BrowserRouter>
-        <Routes>
-            <Route path = '/' element = {<App/>}/>
-            <Route path = '/shop' element = {<Shop/>}/>
-            <Route path = '/detail' element = {<Detail/>}/>
-        </Routes>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+          <Routes>
+              <Route path = '/' element = {<App/>}/>
+              <Route path = '/shop' element = {<Shop/>}/>
+              <Route path = '/detail/:id' element = {<Detail/>}/>
+          </Routes>
+      </BrowserRouter>
+    </CartProvider>
+    
   )
 }
 

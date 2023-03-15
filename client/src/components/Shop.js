@@ -18,8 +18,8 @@ const Shop = () => {
         <div id = 'shop'>
             <div className = 'shop-container'>
                 <ul className = 'shop-container'>
-                  {items.map((item) => (
-                    <li>
+                  {items.map((item, index) => (
+                    <li key = {index} >
                       <Item key = {item._id} name = {item.name} price = {item.price} id = {item._id} img = {item.img}/>
                     </li>
                   ))}

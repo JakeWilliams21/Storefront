@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import jeans from '../images/jeans.webp'
 import Navbar from './Navbar'
-import { CartContext } from '../CartContext'
 import axios from 'axios'
 import { useParams } from 'react-router'
 import { Buffer } from 'buffer'
+import useCart from './useCart'
 
 const Detail = () => {
-  const { cart, addToCart, removeFromCart } = useContext(CartContext)
   const [item, setItem] = useState([])
+  const [added, setAdded] = useState(false)
 
   let { id } = useParams()
 
@@ -16,14 +16,15 @@ const Detail = () => {
     axios.get(`http://localhost:5000/detail/${id}`).then((res) => {
       setItem(res.data)
     })
-
-    console.log(item);
   }, [])
 
   const handleClick = () => {
-    addToCart({
+    const savedCart = JSON.parse(localStorage.getItem('cart')) || []
 
-    })
+    const newCart = [...savedCart, item]
+
+    localStorage.setItem('cart', JSON.stringify(newCart))
+    setAdded(true)
   }
 
   return (
@@ -41,7 +42,7 @@ const Detail = () => {
                 <span>Brand: {item.brand}</span>
             </div>
             <hr/>
-            <button onClick = {handleClick}>Add to Cart</button>
+            <button onClick = {handleClick}>{added ? 'Added!' : 'Add to Cart'}</button>
         </div>
     </div>
     </div>

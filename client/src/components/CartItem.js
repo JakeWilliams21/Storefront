@@ -1,15 +1,16 @@
 import React from 'react'
 import jeans from '../images/jeans.webp'
+import { Buffer } from 'buffer'
 import { Close } from '@mui/icons-material'
 
-const CartItem = () => {
+const CartItem = (props) => {
   return (
     <div className = 'cart-item'>
         <div className = 'cart-item-content'>
-            <img src = {jeans} alt = 'Cart Item'/>
+        {props.img && <img src={`data:${props.img.contentType};base64,${Buffer.from(props.img.data.data).toString('base64')}`} alt='jeans' className="item-image" />}
             <div className = 'cart-item-detail'>
-                <span>Levis 505</span>
-                <span>$45</span>
+                <span>{props.name}</span>
+                <span>${props.price}</span>
             </div>
         </div>
         

@@ -4,6 +4,18 @@ import { Buffer } from 'buffer'
 import { Close } from '@mui/icons-material'
 
 const CartItem = (props) => {
+
+  const handleClick = () => {
+    console.log(props);
+    const savedCart = JSON.parse(localStorage.getItem('cart')) || []
+
+    const newCart = savedCart.filter(cartItem => cartItem._id !== props.id)
+
+    localStorage.setItem('cart', JSON.stringify(newCart))
+
+    props.change()
+  }
+
   return (
     <div className = 'cart-item'>
         <div className = 'cart-item-content'>
@@ -14,7 +26,7 @@ const CartItem = (props) => {
             </div>
         </div>
         
-        <Close/>
+        <Close onClick = {handleClick}/>
     </div>
   )
 }

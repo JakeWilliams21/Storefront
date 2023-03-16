@@ -5,9 +5,15 @@ import $ from 'jquery'
 
 const Navbar = () => {
   const [show, setShow] = useState(false)
+  const [amount, setAmount] = useState()
 
   const handleClick = () => {
     setShow(!show)
+  }
+
+  const amountChange = () => {
+    const savedCart = JSON.parse(localStorage.getItem('cart'))
+    setAmount(savedCart.length)
   }
 
   useEffect(() => {
@@ -16,6 +22,8 @@ const Navbar = () => {
     } else {
       $('#cart').removeClass('left-slide')
     }
+
+    amountChange()
   }, [show])
 
   return (
@@ -26,11 +34,12 @@ const Navbar = () => {
             <span className = 'nav-title'><a href = '/'>Julia's Closet</a></span>
             <span className = 'nav-link nav-link-ltr'><a href = '/shop'>Shop</a></span>
         </div>
-        <div>
+        <div className = 'cart-icon-container'>
+            <span>{amount}</span>
             <ShoppingCartIcon className = 'cart-icon' onClick = {handleClick}/>
         </div>
         {show && <div>
-          <Cart closeCart = {handleClick}/>
+          <Cart closeCart = {handleClick} changeAmount = {amountChange}/>
           <div className = 'dark'></div>
         </div>}
     </div>

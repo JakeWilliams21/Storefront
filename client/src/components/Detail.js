@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import jeans from '../images/jeans.webp'
 import Navbar from './Navbar'
 import axios from 'axios'
 import { useParams } from 'react-router'
 import { Buffer } from 'buffer'
-import useCart from './useCart'
 
 const Detail = () => {
   const [item, setItem] = useState([])

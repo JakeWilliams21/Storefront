@@ -3,23 +3,35 @@ import { Close } from '@mui/icons-material'
 import CartItem from './CartItem'
 import useCart from './useCart'
 
-const Cart = ( {closeCart} ) => {
+const Cart = ( {closeCart, changeAmount} ) => {
     const [cart, setCart] = useState([])
     const [total, setTotal] = useState(0)
+    const [change, setChange] = useState(false)
 
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem('cart'))
+        console.log(savedCart);
         if (savedCart) {
             setCart(savedCart)
         }
-    }, [])
+    }, [change])
 
     useEffect(() => {
+
+        setTotal(0)
         
         for (let i = 0; i < cart.length; i++) {
             setTotal((total) => total + cart[i].price)
         }
-    }, [cart])
+
+        changeAmount()
+
+    }, [cart, change])
+
+    const inactChange = () => {
+        setChange(!change)
+        console.log('changed');
+    }
     
 
     const handleClick = () => {
@@ -37,7 +49,7 @@ const Cart = ( {closeCart} ) => {
                 <ul>
                     {cart && cart.map((item, index) => (
                         <li key = {index}>
-                            <CartItem key = {index} name = {item.name} price = {item.price} img = {item.img}/>
+                            <CartItem key = {index} name = {item.name} price = {item.price} img = {item.img} id = {item._id} change = {inactChange}/>
                         </li>
                     ))}
                 </ul>
@@ -47,6 +59,7 @@ const Cart = ( {closeCart} ) => {
                 <span>Subtotal:</span>
                 <span>${total}</span>
             </div>
+            <div style = {{'display': 'flex', 'width': '100%', 'justifyContent': 'center'}}><a href = '/checkout'><button>Checkout</button></a></div>
         </div>
     </div>
   )

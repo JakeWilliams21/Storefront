@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Close } from '@mui/icons-material'
 import CartItem from './CartItem'
-import useCart from './useCart'
 
 const Cart = ( {closeCart, changeAmount} ) => {
     const [cart, setCart] = useState([])

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Item from './Item'
 import Navbar from './Navbar'
 import axios from 'axios'
-import $ from 'jquery'
 
 const Shop = () => {
   const [items, setItems] = useState([])

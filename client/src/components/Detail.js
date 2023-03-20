@@ -14,7 +14,7 @@ const Detail = () => {
     axios.get(`https://storefront-database.herokuapp.com/detail/${id}`).then((res) => {
       setItem(res.data)
     })
-  }, [])
+  }, [id])
 
   const handleClick = () => {
     const savedCart = JSON.parse(localStorage.getItem('cart')) || []

@@ -19,8 +19,14 @@ const Checkout = () => {
 
       useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem('cart'))
+        const savedShip = JSON.parse(localStorage.getItem('shipping'))
+        console.log(savedShip);
         if (savedCart) {
             setCart(savedCart)
+        }
+
+        if (savedShip) {
+          setFormData(savedShip)
         }
       }, [change])
 
@@ -32,6 +38,22 @@ const Checkout = () => {
             setTotal((total) => total + cart[i].price)
         }
     }, [cart, change])
+
+    const validateForm = () => {
+      const {firstName, lastName, address1, city, state, zipCode } = formData
+      if (
+        firstName.trim() === '' ||
+        lastName.trim() === '' ||
+        address1.trim() === '' ||
+        city.trim() === '' ||
+        state.trim() === '' ||
+        zipCode.trim() === ''
+      ) {
+        return false
+      }
+
+      return true
+    }
 
       const inactChange = () => {
         setChange(!change)
@@ -48,6 +70,12 @@ const Checkout = () => {
 
       const submitShipping = (e) => {
         e.preventDefault()
+
+        if (!validateForm()) {
+          alert('Please fill out all required fields')
+          return;
+        }
+
         localStorage.setItem('shipping', JSON.stringify(formData))
         navigate('/checkout/payment')
       }

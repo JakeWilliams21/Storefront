@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import axios from 'axios'
 import { useParams } from 'react-router'
@@ -40,7 +40,7 @@ const Detail = () => {
                 <span>Brand: {item.brand}</span>
             </div>
             <hr/>
-            <button onClick = {handleClick}>{added ? 'Added!' : 'Add to Cart'}</button>
+            <button onClick = {handleClick} disabled={added}>{added ? 'Added!' : 'Add to Cart'}</button>
         </div>
     </div>
     </div>

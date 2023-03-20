@@ -1,5 +1,4 @@
 import React, { useState} from 'react';
-import jeans from '../images/jeans.webp'
 import { Buffer } from 'buffer';
 
 const StorefrontItem = (props) => {
@@ -8,7 +7,7 @@ const StorefrontItem = (props) => {
   return (
     <a href = {`/detail/${props.id}`}>
       <div
-        className="storefront-item"
+        className="storefront-item hide"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

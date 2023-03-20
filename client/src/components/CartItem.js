@@ -1,5 +1,4 @@
 import React from 'react'
-import jeans from '../images/jeans.webp'
 import { Buffer } from 'buffer'
 import { Close } from '@mui/icons-material'
 

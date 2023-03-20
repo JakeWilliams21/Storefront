@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Item from './Item'
 import Navbar from './Navbar'
 import axios from 'axios'
+import $ from 'jquery'
 
 const Shop = () => {
   const [items, setItems] = useState([])
@@ -10,6 +11,21 @@ const Shop = () => {
     axios.get('http://localhost:5000/shop').then((res) => {
       setItems(res.data)
     })
+  })
+
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual'
+
+    // $(window).on('scroll', () => {
+    //   const windowTop = $(window).scrollTop()
+    //   $('.storefront-item').each(function(){
+    //     const position = $(this).offset().top
+    //     if (position < windowTop + $(window).height()) {
+    //       $(this).addClass('animation-class')
+    //       $(this).removeClass('hide')
+    //     } 
+    //   })
+    // })
   })
 
   return (

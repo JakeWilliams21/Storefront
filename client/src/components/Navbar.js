@@ -13,7 +13,9 @@ const Navbar = () => {
 
   const amountChange = () => {
     const savedCart = JSON.parse(localStorage.getItem('cart'))
-    setAmount(savedCart.length)
+    if (savedCart) {
+      setAmount(savedCart.length)
+    }
   }
 
   useEffect(() => {
@@ -30,7 +32,7 @@ const Navbar = () => {
     <div id = 'navbar'>
         <div></div>
         <div className = 'center-links'>
-            <span className = 'nav-link nav-link-ltr'>About</span>
+            <span className = 'nav-link nav-link-ltr'><a href = '/about'>About</a></span>
             <span className = 'nav-title'><a href = '/'>Julia's Closet</a></span>
             <span className = 'nav-link nav-link-ltr'><a href = '/shop'>Shop</a></span>
         </div>

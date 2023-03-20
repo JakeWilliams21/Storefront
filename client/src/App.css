@@ -204,7 +204,7 @@ ul {
 .storefront-item {
   position: relative;
   width: 300px;
-  height: 400px;
+  /* height: 350px; */
   overflow: hidden;
   animation: 1s fade-in
 }
@@ -375,8 +375,9 @@ ul {
 .cart-item {
   border-top: solid;
   display: flex;
-  gap: 96px;
+  gap: 48px;
   padding: 12px 24px;
+  justify-content: space-between;
 }
 
 .cart-item-content {
@@ -409,6 +410,7 @@ ul {
   justify-content: center;
   align-items: center;
   padding: 24px 0;
+  width: 100%;
 }
 
 .checkout-top span {
@@ -464,6 +466,12 @@ ul {
   gap: 48px;
 }
 
+.submit-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 /* Payment */
 
 .credit-card-form {
@@ -505,6 +513,116 @@ ul {
   border-color: darkgray;
   border-radius: 4px;
   padding: 12px;
+}
+
+@media (max-width: 1000px) {
+  .landing-content {
+    transform: scale(.90)
+  }
+
+  #shop {
+    padding: 48px 24px;
+  }
+
+  .about-content {
+    width: 80%;
+    padding-bottom: 12px;
+  }
+
+  .checkout-content {
+    padding: 24px;
+    flex-direction: column;
+  }
+
+  .shop-container {
+    gap: 96;
+  }
+}
+
+@media (max-width: 500px) {
+  .landing-images img {
+    width: 350px;
+  }
+
+  .alley {
+    top: auto;
+    right: auto;
+    position: block;
+  }
+
+  .nav-title {
+    font-size: xx-large;
+  }
+
+  #navbar {
+    padding: 20px 10px;
+    flex-direction: column;
+  }
+
+  .center-links {
+    gap: 12px;
+  }
+
+  .remove {
+    display: none;
+  }
+
+  .checkout-content {
+    flex-direction: column;
+    padding: 12px 12px;
+  }
+
+  .form-container {
+    margin: 0;
+  }
+
+  .form-input-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-input {
+    width: 90%;
+  }
+
+  .left {
+    gap: 12px;
+  }
+
+  .submit-container {
+    justify-content: center;
+  }
+
+  .detail-image {
+    min-width: 225px;
+    max-width: 375px;
+  }
+
+  .detail-content {
+    padding: 0;
+  }
+
+  .detail-title {
+    font-size: x-large;
+  }
+
+  #detail {
+    padding: 0;
+  }
+
+  .about-content {
+    width: 100%;
+    padding-bottom: 12px;
+  }
+
+  .shop-container {
+    gap: 36px;
+  }
+
+  .storefront-item {
+    width: 150px;
+    height: 200px;
+  }
 }
 
 

@@ -161,7 +161,7 @@ const Checkout = () => {
                     placeholder = 'Zip Code'
                     />
                 </div>
-                <div style = {{'display': 'flex', 'justifyContent': 'right', 'width': '100%'}}><button type="submit" onClick = {submitShipping}>Continue to Payment</button></div>
+                <div className = 'submit-container'><button type="submit" onClick = {submitShipping}>Continue to Payment</button></div>
                 </form>
             </div>
             <div className = 'right'>

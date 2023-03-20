@@ -11,7 +11,7 @@ const Detail = () => {
   let { id } = useParams()
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/detail/${id}`).then((res) => {
+    axios.get(`https://storefront-database.herokuapp.com/detail/${id}`).then((res) => {
       setItem(res.data)
     })
   }, [])

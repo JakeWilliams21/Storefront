@@ -8,7 +8,7 @@ const Landing = () => {
         <div className = 'landing-content'>
             <div className = 'landing-images'>
                 <img src = {apples} className = 'apples' alt = 'Apple Picking'/>
-                <img src = {alley} className = 'alley' alt = 'Alley Pose'/>
+                <img src = {alley} className = 'alley remove' alt = 'Alley Pose'/>
             </div>
             <div className = 'button-container'>
                 <a href = '/shop'><button className = 'shop-now'>Shop Now</button></a>

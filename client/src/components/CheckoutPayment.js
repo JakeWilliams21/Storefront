@@ -120,7 +120,7 @@ const CheckoutPayment = () => {
           }
 
           try {
-            const res = axios.post('http://localhost:5000/payments', submission)
+            const res = axios.post('https://storefront-database.herokuapp.com/payments', submission)
             console.log(res);
             localStorage.clear()
             navigate('/checkout/payment/success')
@@ -218,7 +218,7 @@ const CheckoutPayment = () => {
                 placeholder = 'Zip Code'
                 />
             </div>
-            <div style = {{'display': 'flex', 'justifyContent': 'right', 'width': '100%'}}><button type="submit" onClick = {handleSubmit}>Purchase</button></div>
+            <div className = 'submit-container'><button type="submit" onClick = {handleSubmit}>Purchase</button></div>
             </form>
             </div>
             <div className = 'right'>

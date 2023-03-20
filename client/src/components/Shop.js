@@ -8,10 +8,10 @@ const Shop = () => {
   const [items, setItems] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:5000/shop').then((res) => {
+    axios.get('https://storefront-database.herokuapp.com/shop').then((res) => {
       setItems(res.data)
     })
-  })
+  }, [])
 
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
@@ -26,7 +26,7 @@ const Shop = () => {
     //     } 
     //   })
     // })
-  })
+  }, [])
 
   return (
     <div>

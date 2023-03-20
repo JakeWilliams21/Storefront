@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <div id = 'navbar'>
-        <div></div>
+        <div className = 'remove'></div>
         <div className = 'center-links'>
             <span className = 'nav-link nav-link-ltr'><a href = '/about'>About</a></span>
             <span className = 'nav-title'><a href = '/'>Julia's Closet</a></span>
